@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* bg-gradient-to-r from-indigo-500 to-purple-600 */
+@layer utilities {
+  .text-primary-gradient {
+    background: linear-gradient(
+        106.62deg,
+        rgb(232, 78, 56) 6.68%,
+        rgb(186, 44, 184) 82.69%
+      )
+      padding-box text;
+    @apply bg-clip-text text-transparent leading-tight;
+  }
+  .title-chip {
+    @apply text-lg capitalize py-2 px-8 tracking-tight font-bold border border-black rounded-xl border-b-8;
+  }
+  .text-description {
+    @apply text-slate-500 text-sm leading-loose;
+  }
+
+  .description-sub-heading {
+    @apply decoration-dashed underline text-base font-semibold text-slate-800;
+  }
+
+  .description-section {
+    @apply flex flex-col mt-32 gap-8 lg:flex-row justify-between my-12;
+  }
+
+  .description-heading {
+    @apply text-lg capitalize tracking-tighter font-bold;
+  }
+
+  .primary-chip {
+    @apply bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent text-base capitalize font-light leading-loose border border-violet-500 border-b-4 rounded-full px-5 py-0.5;
+  }
+
+  .secondary-chip {
+    @apply text-sm text-slate-600  capitalize font-light leading-loose border border-black border-b-4 rounded-full px-5 py-1;
+  }
+
+  .black-chip {
+    @apply text-3xl font-extrabold leading-tight tracking-tighter py-2 px-4 inline-block border border-b-8 border-slate-800 rounded-xl;
+  }
+
+  .project-heading {
+    @apply text-5xl inline-block tracking-tight font-bold pb-2 mb-10 border-b border-black;
+  }
+
+  .work-section-container {
+    @apply flex-col gap-8 flex bg-white lg:flex-row justify-between py-4 my-36 transition-all;
+  }
+}
+/* 
+lg:grayscale hover:grayscale-0
+.work-handle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  width: 10px;
+  height: 1px;
+  opacity: 1 !important;
+  border-top: 1px solid theme(colors.slate.500);
+} */
+
+.bg-blur {
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.animate-bouncing {
+  animation: bounce 3s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-35%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.grayscale-50 {
+  filter: grayscale(60%);
+}
+
+@media (width < 550px) {
+  .org-chart-iframe {
+    height: 300px;
+  }
+}
