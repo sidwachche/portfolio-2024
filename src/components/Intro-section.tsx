@@ -1,16 +1,16 @@
 "use client";
 
-import Image from "next/image";
-import reactLogo from "../../public/images/react.svg";
-import jsLogo from "../../public/images/javascript.svg";
-import nextLogo from "../../public/images/nextjs-icon.svg";
+// import Image from "next/image";
+// import reactLogo from "../../public/images/react.svg";
+// import jsLogo from "../../public/images/javascript.svg";
+// import nextLogo from "../../public/images/nextjs-icon.svg";
 import { motion } from "framer-motion";
 
-const techLogos = [
-  { img: reactLogo, position: { right: 0, top: "33%" }, name: "react" },
-  { img: jsLogo, position: { right: "10%", top: "8%" }, name: "javascript" },
-  { img: nextLogo, position: { right: "20%", bottom: "20%" }, name: "nextjs" },
-];
+// const techLogos = [
+//   { img: reactLogo, position: { right: 0, top: "33%" }, name: "react" },
+//   { img: jsLogo, position: { right: "10%", top: "8%" }, name: "javascript" },
+//   { img: nextLogo, position: { right: "20%", bottom: "20%" }, name: "nextjs" },
+// ];
 
 const tagLine = "Transforming Designs into Interactive Web Delight".split(" ");
 
@@ -34,7 +34,7 @@ function IntroSection() {
         >
           Sid Wachche
         </motion.h2>
-        <h4 className="text-sm text-slate-500">Founding Engineer @Boomerang</h4>
+        <p className="text-sm text-slate-500">Founding Engineer @Boomerang</p>
       </div>
       <div className="h-auto space-y-4 font-extrabold leading-tight tracking-tighter ">
         <h1 className="text-5xl lg:text-7xl inline-block pr-2 text-primary-gradient">
@@ -56,15 +56,7 @@ function IntroSection() {
           ))}
         </h1>
       </div>
-      {/* <motion.div
-        transition={{ duration: 4 }}
-        initial={{ x: -500 }}
-        animate={{ x: 0 }}
-        className=""
-      >
-        <Image src={reactLogo} alt="" width={80} height={80} />
-      </motion.div> */}
-      <section className=" flex-row gap-10 hidden md:flex">
+      {/* <section className=" flex-row gap-10 hidden md:flex">
         {techLogos.map(({ img, name, position }) => (
           <motion.div
             initial={{ x: -500 }}
@@ -82,7 +74,7 @@ function IntroSection() {
             />
           </motion.div>
         ))}
-      </section>
+      </section> */}
     </div>
   );
 }

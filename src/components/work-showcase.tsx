@@ -115,7 +115,7 @@ function WorkShowcase() {
                     height={200}
                     className="rounded-lg border hover:scale-105 transition-all "
                     src={src}
-                    alt={name}
+                    alt={`name app image`}
                     placeholder="blur"
                     loading="lazy"
                   />

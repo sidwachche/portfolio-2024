@@ -73,7 +73,7 @@ function WorkExperience() {
                         "lg:text-3xl text-lg leading-tight font-bold transition-all",
                         name === selectedTab
                           ? "text-primary-gradient"
-                          : "text-slate-400"
+                          : "text-slate-500"
                       )}
                     >
                       {name}
