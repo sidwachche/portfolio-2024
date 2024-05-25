@@ -27,7 +27,7 @@ function MacWindowWrapper({
           duration: 1,
         },
       }}
-      viewport={{ once: true }}
+      // viewport={{ once: true }}
       className={clsx(
         disableTapAnimation ? "cursor-default" : "cursor-pointer",
         "border border-solid border-gray-300 rounded-lg overflow-hidden"

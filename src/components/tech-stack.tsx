@@ -71,9 +71,9 @@ function TechStack() {
   return (
     <div className="" id="experience">
       <h1 className="black-chip">Tech Stack</h1>
-      <section className="my-20 rounded-lg overflow-auto">
+      <section className="mb-20 mt-10 rounded-lg overflow-auto">
         {Object.keys(techStack).map((key) => (
-          <section key={key} className="my-10">
+          <section key={key} className="mb-10">
             <p className="text-xl px-2 border-0 border-b border-dashed border-black inline-block my-6">
               {key}
             </p>
