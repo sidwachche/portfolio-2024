@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { FaGithub } from "react-icons/fa";
 
 function Header() {
   return (
@@ -15,6 +16,16 @@ function Header() {
 
         <Link href="/#experience" className="text-sm p-1 hover:text-black ">
           Experience
+        </Link>
+
+        <Link
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`link to my github account`}
+          href="https://github.com/sidwachche"
+          className="text-sm p-1 hover:text-black "
+        >
+          <FaGithub className="inline-block" />
         </Link>
       </section>
     </nav>

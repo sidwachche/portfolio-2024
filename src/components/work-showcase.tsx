@@ -64,7 +64,7 @@ function WorkShowcase() {
             <h3 className="text-5xl text-primary-gradient tracking-tight font-bold pr-2">
               {title}
             </h3>
-            <h2 className="text-lg text-gray-600 ">{description}</h2>
+            <h4 className="text-lg text-gray-600 ">{description}</h4>
             <Link
               className="text-md text-gray-500 my-5 underline decoration-dotted cursor-pointer"
               href={link}
@@ -96,9 +96,9 @@ function WorkShowcase() {
           <p className="text-md text-gray-600 my-2">
             These are freeCodeCamp react certification projects
           </p>
-          <h2 className="text-sm text-gray-500 mt-6">
+          <h4 className="text-sm text-gray-500 mt-6">
             click on a tile to checkout live projects and code
-          </h2>
+          </h4>
         </div>
         <section className="max-w-[850px] h-auto">
           <MacWindowWrapper disableTapAnimation tagName="org-charts">

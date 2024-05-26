@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
@@ -25,6 +26,7 @@ export default function RootLayout({
           {children}
         </section>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
