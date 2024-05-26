@@ -89,16 +89,16 @@ function WorkShowcase() {
         </section>
       ))}
       <section className="work-section-container">
-        <div className="flex flex-col gap-2 max-w-[300px]">
+        <div className="flex flex-col max-w-[300px]">
           <h3 className="text-5xl text-primary-gradient tracking-tight font-bold pr-2">
             React Projects
           </h3>
-          <h2 className="text-lg text-gray-600 ">
-            click on a tile to checkout live projects and code
-          </h2>
-          <p className="text-md text-gray-500">
+          <p className="text-md text-gray-600 my-2">
             These are freeCodeCamp react certification projects
           </p>
+          <h2 className="text-sm text-gray-500 mt-6">
+            click on a tile to checkout live projects and code
+          </h2>
         </div>
         <section className="max-w-[850px] h-auto">
           <MacWindowWrapper disableTapAnimation tagName="org-charts">
@@ -118,6 +118,7 @@ function WorkShowcase() {
                     alt={`name app image`}
                     placeholder="blur"
                     loading="lazy"
+                    quality={80}
                   />
                   <motion.p
                     whileTap={{ scale: 0.85 }}
