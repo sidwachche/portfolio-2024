@@ -19,26 +19,26 @@ const socialList = [
 
 function Footer() {
   return (
-    <footer className="bg-black py-20 px-10 flex md:flex-row flex-col md:items-start items-center justify-center gap-4 text-slate-300 rounded-t-3xl">
-      <p className="">© 2024 Sid Wachche</p>
-      <section className="flex flex-col items-center justify-center grow gap-4">
-        <a href="mailto:sidwachche@outlook.com" className="underline">
-          sidwachche@outlook.com
-        </a>
-        <section className="flex gap-6">
-          {socialList?.map(({ name, link, icon: Icon }) => (
-            <Link
-              key={name}
-              className=""
-              href={link}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`link to my ${name}`}
-            >
-              <Icon className="text-3xl" />
-            </Link>
-          ))}
-        </section>
+    <footer className="bg-black py-20 px-10 flex flex-col items-center justify-center grow gap-12 text-slate-300 rounded-t-3xl">
+      <a
+        href="mailto:sidwachche@outlook.com"
+        className="underline text-xl font-semibold"
+      >
+        sidwachche@outlook.com
+      </a>
+      <section className="flex gap-6">
+        {socialList?.map(({ name, link, icon: Icon }) => (
+          <Link
+            key={name}
+            className=""
+            href={link}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`link to my ${name}`}
+          >
+            <Icon className="text-3xl" />
+          </Link>
+        ))}
       </section>
     </footer>
   );

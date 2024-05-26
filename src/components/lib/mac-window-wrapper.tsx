@@ -33,12 +33,12 @@ function MacWindowWrapper({
         "border border-solid border-gray-300 rounded-lg overflow-hidden"
       )}
     >
-      <div className="bg-white w-full h-8 flex gap-2 items-center px-3 rounded-t-lg border-b border-gray-300">
+      <div className="bg-white w-full md:h-8 h-5 flex gap-2 items-center px-3 rounded-t-lg border-b border-gray-300">
         {colors.map((color, index) => (
           <div
             key={`${tagName}-${index}`}
             style={{ background: color }}
-            className=" size-3 rounded-full"
+            className=" md:size-3 size-2 rounded-full"
           ></div>
         ))}
       </div>
