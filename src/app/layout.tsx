@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={clsx(inter.className, "text-slate-700 ")}>
         <Header />
-        <section className="lg:pl-20 lg:pr-10 px-3 py-24 w-screen font-light">
+        <section className="lg:pl-20 lg:pr-10 md:px-8 px-3 py-24 w-screen font-light">
           {children}
         </section>
         <Footer />

@@ -16,6 +16,10 @@ import RandomGenImage from "../../public/images/random.webp";
 import MacWindowWrapper from "./lib/mac-window-wrapper";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { HiOutlineArrowLongRight } from "react-icons/hi2";
+import { BsArrowRight } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 export const PROJECT_SECTION_CLASSES =
   "flex-col gap-8 flex lg:flex-row justify-between my-24";
@@ -54,11 +58,51 @@ const freeCodeProjectList = [
 function WorkShowcase() {
   return (
     <div className="">
-      <h1 className="black-chip" id="work">
-        Selected Work
-      </h1>
-
+      <div className="flex justify-center mb-14">
+        <h1 className="black-chip " id="work">
+          Selected Work
+        </h1>
+      </div>
       {projectList.map(({ title, description, imgSrc, link }) => (
+        <section
+          key={description}
+          className="group border p-1 rounded-[20px] xl:mx-32 my-10 shadow-md relative shadow-primary-gradient transition-all"
+        >
+          <Link className="" href={link} target="_blank">
+            <div className="px-8 py-9 border rounded-2xl overflow-hidden bg-white shadow-xl">
+              <div className="flex flex-col gap-2 mb-10 transition-all duration-500">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-4xl text-primary-gradient tracking-tight font-bold pr-2">
+                    {title}
+                  </h3>
+                  <BsArrowRight className="text-gray-500 text-2xl group-hover:translate-x-2 duration-500" />
+                </div>
+                <div className="flex gap-3">
+                  <h4 className="text-lg font-semibold text-gray-600 ">
+                    Boomerang
+                  </h4>
+                  <h5 className="text-lg text-gray-500 ">{description}</h5>
+                </div>
+              </div>
+
+              <div className="flex justify-center w-full">
+                <MacWindowWrapper tagName="org-charts">
+                  <Image
+                    width={1050}
+                    height={650}
+                    src={imgSrc}
+                    alt="org chart overview"
+                    className="rounded-b-lg"
+                    placeholder="blur"
+                    loading="lazy"
+                  />
+                </MacWindowWrapper>
+              </div>
+            </div>
+          </Link>
+        </section>
+      ))}
+      {/* {projectList.map(({ title, description, imgSrc, link }) => (
         <section key={description} className="work-section-container">
           <div className="flex flex-col gap-2 max-w-[300px]">
             <h3 className="text-5xl text-primary-gradient tracking-tight font-bold pr-2">
@@ -87,50 +131,48 @@ function WorkShowcase() {
             </MacWindowWrapper>
           </Link>
         </section>
-      ))}
-      <section className="work-section-container">
-        <div className="flex flex-col max-w-[300px]">
-          <h3 className="text-5xl text-primary-gradient tracking-tight font-bold pr-2">
-            React Projects
-          </h3>
-          <p className="text-md text-gray-600 my-2">
-            These are freeCodeCamp react certification projects
-          </p>
-          <h4 className="text-sm text-gray-500 mt-6">
-            click on a tile to checkout live projects and code
-          </h4>
-        </div>
-        <section className="max-w-[850px] h-auto">
+      ))} */}
+      <section className="group border p-1 rounded-[20px] xl:mx-32 my-10 shadow-md relative shadow-primary-gradient transition-all">
+        <div className="px-8 py-9 border rounded-2xl overflow-hidden bg-white shadow-xl">
+          <div className="flex flex-col gap-2 mb-10 transition-all duration-500">
+            <div className="flex justify-between items-center">
+              <h3 className="text-4xl text-primary-gradient tracking-tight font-bold pr-2">
+                React Projects
+              </h3>
+            </div>
+            <div className="flex flex-col gap-3 ">
+              <h4 className="text-lg font-semibold text-gray-600 ">
+                These are freeCodeCamp react certification projects
+              </h4>
+              <h4 className="text-sm text-gray-500">
+                click on a tile to checkout live projects and code
+              </h4>
+            </div>
+          </div>
           <MacWindowWrapper disableTapAnimation tagName="org-charts">
-            <section className="flex gap-5 flex-wrap p-4">
+            <section className="grid gap-16 grid-cols-3 p-8">
               {freeCodeProjectList.map(({ link, name, src }) => (
-                <Link
-                  href={baseUrl + link}
-                  key={name}
-                  target="_blank"
-                  className=""
-                >
-                  <Image
-                    width={250}
-                    height={200}
-                    className="rounded-lg border hover:scale-105 transition-all "
-                    src={src}
-                    alt={`name app image`}
-                    placeholder="blur"
-                    loading="lazy"
-                    quality={80}
-                  />
-                  <motion.p
-                    whileTap={{ scale: 0.85 }}
-                    className="text-md text-gray-500 py-1 text-center underline decoration-dotted cursor-pointer"
-                  >
-                    {name}
-                  </motion.p>
+                <Link href={baseUrl + link} key={name} target="_blank">
+                  <motion.div whileTap={{ scale: 0.85 }} className="space-y-2">
+                    <Image
+                      width={200}
+                      height={200}
+                      className="rounded-lg border hover:scale-105 transition-all w-20 md:w-full"
+                      src={src}
+                      alt={`name app image`}
+                      placeholder="blur"
+                      loading="lazy"
+                      quality={80}
+                    />
+                    <p className="text-md text-gray-500 py-1 underline decoration-dotted cursor-pointer">
+                      {name}
+                    </p>
+                  </motion.div>
                 </Link>
               ))}
             </section>
           </MacWindowWrapper>
-        </section>
+        </div>
       </section>
     </div>
   );

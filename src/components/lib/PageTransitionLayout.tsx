@@ -35,7 +35,7 @@ const PageTransitionLayout: FC<ILayoutProps> = ({ children }) => {
             opacity: -1000,
           },
         }}
-        className="min-h-screen w-full" // Feel free to add your classes here
+        className="min-h-dvh w-full" // Feel free to add your classes here
       >
         {children}
       </motion.div>

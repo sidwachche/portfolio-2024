@@ -1,33 +1,47 @@
 "use client";
-import * as Tabs from "@radix-ui/react-tabs";
 import clsx from "clsx";
-import { motion } from "framer-motion";
 import { useState } from "react";
+import mphLogo from "../../public/images/mphasis-logo.png";
 import BoomerangExp from "./markdowns/boomerang-exp.mdx";
-import jllExp from "./markdowns/jll-exp.mdx";
 import hashedinExp from "./markdowns/hashedin-exp.mdx";
+import jllExp from "./markdowns/jll-exp.mdx";
 import mphasisExp from "./markdowns/mphasis.mdx";
+// import jllLogo from "../../public/images/JLL-dark-logo.png";
+import Image from "next/image";
+import jllLogo from "../../public/images/JLL_logo.png";
+import boomLogo from "../../public/images/boomerang-logo.svg";
+import hashLogo from "../../public/images/hashedin-logo.png";
+import { motion } from "framer-motion";
+import ExperiencePopover from "./popover";
 
 const companyList = [
   {
     name: "Boomerang",
-    duration: "march 2021 – to present",
+    duration: " 03/ 2021 – Present",
     MdxComponent: BoomerangExp,
+    logo: boomLogo,
+    designation: "Senior Frontend Engineer",
   },
   {
     name: "JLL",
-    duration: "november 2019 – to february 2021",
+    duration: "11/ 2019 – 02/ 2021",
     MdxComponent: jllExp,
+    logo: jllLogo,
+    designation: "Senior Frontend Engineer",
   },
   {
     name: "Hashedin",
-    duration: "february 2019 – to november 2019",
+    duration: "02/ 2019 – 11/ 2019",
     MdxComponent: hashedinExp,
+    logo: hashLogo,
+    designation: "Senior Software Engineer",
   },
   {
     name: "Mphasis",
-    duration: "april 2015 – to february 2019",
+    duration: "04/ 2015 – 02/ 2019",
     MdxComponent: mphasisExp,
+    logo: mphLogo,
+    designation: "Delivery Software Associate",
   },
 ];
 
@@ -35,10 +49,71 @@ function WorkExperience() {
   const [selectedTab, setSelectedTab] = useState("Boomerang");
 
   return (
-    <div className="" id="experience">
-      <h1 className="black-chip">Work Experience</h1>
-      <section className="mb-20 mt-10 rounded-lg overflow-auto">
-        <Tabs.Root
+    <div className="md:mb-40" id="experience">
+      <div className="flex justify-center mb-14">
+        <h1 className="black-chip " id="work">
+          Work Experience
+        </h1>
+      </div>
+      <section className="mb-20 rounded-lg">
+        <section className="flex flex-col items-center md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-16 lg:gap-x-40">
+          {companyList.map(
+            ({ name, duration, logo, designation, MdxComponent }, index) => (
+              <ExperiencePopover name={name} MdxComponent={MdxComponent}>
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    x: index % 2 !== 0 ? 250 : -250,
+                    // y: 150,
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                    transition: {
+                      duration: 1,
+                    },
+                  }}
+                  className={clsx(
+                    "cursor-pointer shadow-md",
+                    "border w-72 h-80 mb-5 rounded-2xl p-4 flex flex-col justify-between",
+                    index % 2 !== 0
+                      ? "relative md:top-24 md:mt-16"
+                      : "justify-self-end"
+                  )}
+                >
+                  <div
+                    className={clsx(
+                      index % 2 !== 0
+                        ? "bg-primary-gradient "
+                        : "bg-primary-dark-gradient",
+                      "w-full h-40 rounded-2xl flex items-center shadow-xl justify-center mb-6"
+                    )}
+                  >
+                    <Image
+                      width={200}
+                      height={100}
+                      src={logo}
+                      alt="company logo"
+                      // placeholder="blur"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <h5 className="text-xl font-semibold text-primary-gradient">
+                      {name}
+                    </h5>
+                    <p className="text-base text-gray-600">{designation}</p>
+                    <p className="text-sm text-gray-500 font-light">
+                      {duration}
+                    </p>
+                  </div>
+                </motion.div>
+              </ExperiencePopover>
+            )
+          )}
+        </section>
+        {/* <Tabs.Root
           className="flex lg:flex-row flex-col gap-10 py-5"
           value={selectedTab}
           onValueChange={setSelectedTab}
@@ -102,7 +177,7 @@ function WorkExperience() {
               </Tabs.Content>
             ))}
           </section>
-        </Tabs.Root>
+        </Tabs.Root> */}
       </section>
     </div>
   );

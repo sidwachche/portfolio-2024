@@ -30,10 +30,10 @@ function MacWindowWrapper({
       // viewport={{ once: true }}
       className={clsx(
         disableTapAnimation ? "cursor-default" : "cursor-pointer",
-        "border border-solid border-gray-300 rounded-lg overflow-hidden"
+        "border border-solid border-gray-300 rounded-lg overflow-hidden inline-block"
       )}
     >
-      <div className="bg-white w-full md:h-8 h-5 flex gap-2 items-center px-3 rounded-t-lg border-b border-gray-300">
+      <div className="bg-white md:h-8 h-5 flex gap-2 items-center px-3 rounded-t-lg border-b border-gray-300">
         {colors.map((color, index) => (
           <div
             key={`${tagName}-${index}`}
