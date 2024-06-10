@@ -150,21 +150,24 @@ function WorkShowcase() {
             </div>
           </div>
           <MacWindowWrapper disableTapAnimation tagName="org-charts">
-            <section className="grid gap-16 grid-cols-3 p-8">
+            <section className="grid gap-4 lg:gap-10 grid-cols-3 md:grid-cols-3 lg:grid-cols-5 p-8">
               {freeCodeProjectList.map(({ link, name, src }) => (
                 <Link href={baseUrl + link} key={name} target="_blank">
-                  <motion.div whileTap={{ scale: 0.85 }} className="space-y-2">
+                  <motion.div
+                    whileTap={{ scale: 0.85 }}
+                    className="space-y-2 w-full "
+                  >
                     <Image
                       width={200}
                       height={200}
-                      className="rounded-lg border hover:scale-105 transition-all w-20 md:w-full"
+                      className="rounded-lg border-2 transition-all min-w-16 md:w-full"
                       src={src}
                       alt={`name app image`}
                       placeholder="blur"
                       loading="lazy"
                       quality={80}
                     />
-                    <p className="text-md text-gray-500 py-1 underline decoration-dotted cursor-pointer">
+                    <p className="text-md text-gray-500 py-1 truncate underline decoration-dotted cursor-pointer">
                       {name}
                     </p>
                   </motion.div>

@@ -63,13 +63,11 @@ function WorkExperience() {
                 <motion.div
                   initial={{
                     opacity: 0,
-                    x: index % 2 !== 0 ? 250 : -250,
-                    // y: 150,
+                    y: 100,
                   }}
-                  whileTap={{ scale: 0.9 }}
                   whileInView={{
                     opacity: 1,
-                    x: 0,
+                    y: 0,
                     transition: {
                       duration: 1,
                     },

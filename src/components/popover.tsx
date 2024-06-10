@@ -22,7 +22,7 @@ function ExperiencePopover({
           sideOffset={10}
           asChild
         >
-          <section className="bg-white shadow-xl w-80 md:w-full rounded-lg p-6 border">
+          <section className="bg-white shadow-xl w-[375px] md:w-full rounded-lg p-6 border">
             <div className="flex justify-between w-full mb-6">
               <h5 className="text-xl font-semibold text-primary-gradient">
                 {name}
