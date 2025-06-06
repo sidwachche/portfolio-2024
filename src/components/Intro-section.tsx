@@ -16,7 +16,12 @@ const tagLine = "Transforming Designs into Interactive Web Delight".split(" ");
 
 function IntroSection() {
   return (
-    <div className="h-dvh flex flex-col gap-40 relative">
+    <div
+      style={{
+        height: Math.max(window.innerHeight - 200, 500),
+      }}
+      className="flex flex-col gap-40 relative w-full"
+    >
       <div className="flex flex-col items-start gap-2">
         <motion.h2
           initial={{
