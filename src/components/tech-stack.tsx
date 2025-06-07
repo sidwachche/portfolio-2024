@@ -1,119 +1,64 @@
 "use client";
 
-import clsx from "clsx";
+import { useState, useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 
-const primaryTechStack = [
-  "react 18",
-  "next js 14",
-  "typescript",
-  "redux",
-  "tailwind css",
-  "Radix UI",
-  "RTK Query",
-  "Graphql",
-  "HTML 5",
-  "CSS 3",
-];
-
-const secondaryTechStack = [
-  "keyclok",
-  "Jest",
-  "SQL",
-  "Linux",
-  "Git",
-  "Unit testing",
-  "TDD",
-];
-
-const frontedSkill = [
-  "SCSS",
-  "Flexbox",
-  "CSS Grid",
-  "Responsive Web design",
-  "UX",
-  "Performance/Page load Optimization",
-  "Web Vitals",
-  "Data visualization",
-  "Animations",
-  "ES Lint",
-];
-
-const frameworks = [
-  "nest js",
-  "NodeJS",
-  "Express JS",
-  "Angular 2+",
-  "jQuery",
-  "Gatsby",
-];
-
-const tooling = [
-  "webpack 5",
-  "Framer Motion",
-  "next auth",
-  "Storybook",
-  "tan stack table",
-  "material ui",
-  "lexical rich text editor",
-  "apollo graphql",
-];
-
-const techStack: Record<string, string[]> = {
-  "Primary Tech Stack": primaryTechStack,
-  "Frontend Skills": frontedSkill,
-  Frameworks: frameworks,
-  "Libraries & Tooling": tooling,
-  Cloud: ["AWS", "Azure"],
-  Other: secondaryTechStack,
-};
+// Dynamically import the TechStackWithIcons component for lazy loading
+const TechStackWithIcons = dynamic(() => import("./tech-stack-with-icons"), {
+  loading: () => (
+    <div className="mb-20 mt-10 rounded-lg overflow-auto">
+      <div className="animate-pulse">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 lg:w-5/6">
+          {[...Array(12)].map((_, i) => (
+            <div
+              key={i}
+              className="h-24 rounded-2xl bg-gray-200 border border-gray-300"
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  ),
+  // ssr: false, // Disable SSR for better performance
+});
 
 function TechStack() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Stop observing once visible
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+        rootMargin: "400px", // Start loading 50px before the section comes into view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="" id="experience">
+    <div className="" id="experience" ref={sectionRef}>
       <h1 className="black-chip">Tech Stack</h1>
-      <section className="mb-20 mt-10 rounded-lg overflow-auto">
-        {Object.keys(techStack).map((key) => (
-          <section key={key} className="mb-10">
-            <p className="text-xl px-2 border-0 border-b border-dashed border-black inline-block my-6">
-              {key}
-            </p>
-            <section className="flex gap-4 flex-wrap lg:w-2/3">
-              {techStack[key].map((tech) => (
-                <p
-                  key={tech}
-                  className={clsx(
-                    key === "Primary Tech Stack"
-                      ? "primary-chip"
-                      : "secondary-chip"
-                  )}
-                >
-                  {tech}
-                </p>
-              ))}
-            </section>
-          </section>
-        ))}
-        {/* <p className="text-lg border-0 border-b border-black inline-block mb-4">
-          Primary Tech Stack
-        </p>
-        <section className="flex gap-4 flex-wrap">
-          {primaryTechStack.map((tech) => (
-            <p key={tech} className="primary-chip">
-              {tech}
-            </p>
-          ))}
-        </section>
-        <p className="text-lg border-0 border-b border-black inline-block mb-4">
-          Frontend Skills
-        </p>
-        <section className="flex gap-4 flex-wrap">
-          {secondaryTechStack.map((tech) => (
-            <p key={tech} className="secondary-chip">
-              {tech}
-            </p>
-          ))}
-        </section> */}
-      </section>
+      {isVisible ? (
+        <TechStackWithIcons />
+      ) : (
+        <div className="mb-20 mt-10 rounded-lg overflow-auto">
+          <div className="text-center py-16 text-gray-500">
+            <div className="text-lg">Loading tech stack...</div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
