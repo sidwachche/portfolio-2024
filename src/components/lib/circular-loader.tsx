@@ -4,8 +4,8 @@ import clsx from "clsx";
 
 const CircularLoader = ({
   size = 30,
-  ringColorClass = "border-t-primary",
-  borderColorClass = "border-mid-100",
+  ringColorClass = "!border-t-indigo-500",
+  borderColorClass = "border-gray-200",
   className = "",
 }: {
   size?: number;
@@ -27,7 +27,7 @@ const CircularLoader = ({
         className={clsx(
           ringColorClass,
           borderColorClass,
-          "border-solid rounded-full animate-spin-fast border-t-4"
+          "border-solid rounded-full animate-spin border-t-4"
         )}
         style={{ ...loaderStyle, borderWidth: size / 12 }}
       ></div>
