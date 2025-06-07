@@ -1,16 +1,16 @@
 "use client";
 
-// import Image from "next/image";
-// import reactLogo from "../../public/images/react.svg";
-// import jsLogo from "../../public/images/javascript.svg";
-// import nextLogo from "../../public/images/nextjs-icon.svg";
+import Image from "next/image";
+import reactLogo from "../../public/images/react.svg";
+import jsLogo from "../../public/images/javascript.svg";
+import nextLogo from "../../public/images/nextjs-icon.svg";
 import { motion } from "framer-motion";
 
-// const techLogos = [
-//   { img: reactLogo, position: { right: 0, top: "33%" }, name: "react" },
-//   { img: jsLogo, position: { right: "10%", top: "8%" }, name: "javascript" },
-//   { img: nextLogo, position: { right: "20%", bottom: "20%" }, name: "nextjs" },
-// ];
+const techLogos = [
+  { img: reactLogo, position: { right: 0, top: "33%" }, name: "react" },
+  { img: jsLogo, position: { right: "10%", top: "8%" }, name: "javascript" },
+  { img: nextLogo, position: { right: "20%", bottom: "20%" }, name: "nextjs" },
+];
 
 const tagLine = "Transforming Designs into Interactive Web Delight".split(" ");
 
@@ -61,7 +61,7 @@ function IntroSection() {
           ))}
         </h1>
       </div>
-      {/* <section className=" flex-row gap-10 hidden md:flex">
+      <section className=" flex-row gap-10 hidden md:flex">
         {techLogos.map(({ img, name, position }) => (
           <motion.div
             initial={{ x: -500 }}
@@ -75,11 +75,11 @@ function IntroSection() {
               width={80}
               height={80}
               style={position}
-              className="inline-block absolute opacity-90 blur-[1px] box-content p-10 hover:blur-none"
+              className="inline-block absolute opacity-90 blur-[1px] grayscale box-content p-10 hover:blur-none"
             />
           </motion.div>
         ))}
-      </section> */}
+      </section>
     </div>
   );
 }

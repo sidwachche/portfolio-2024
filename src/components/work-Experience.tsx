@@ -96,7 +96,7 @@ function WorkExperience() {
                       height={100}
                       src={logo}
                       alt="company logo"
-                      placeholder="blur"
+                      // placeholder="blur
                       loading="lazy"
                     />
                   </div>
