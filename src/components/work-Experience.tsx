@@ -72,8 +72,16 @@ function WorkExperience() {
                       duration: 1,
                     },
                   }}
+                  whileHover={{
+                    scale: 1.02,
+                    y: -8,
+                    transition: {
+                      duration: 0.2,
+                      ease: "easeOut",
+                    },
+                  }}
                   className={clsx(
-                    "cursor-pointer shadow-md",
+                    "group cursor-pointer shadow-md hover:shadow-xl transition-all duration-300",
                     "border w-72 h-80 mb-5 rounded-2xl p-4 flex flex-col justify-between",
                     index % 2 !== 0
                       ? "relative md:top-24 md:mt-16"
@@ -98,11 +106,33 @@ function WorkExperience() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <h5 className="text-xl font-semibold text-primary-gradient">
-                      {name}
-                    </h5>
-                    <p className="text-base text-gray-600">{designation}</p>
-                    <p className="text-sm text-gray-500 font-light">
+                    <div className="flex items-center justify-between">
+                      <h5 className="text-xl font-semibold text-primary-gradient">
+                        {name}
+                      </h5>
+                      <div className="flex items-center gap-1 text-xs text-gray-400">
+                        <p className="hidden group-hover:block">
+                          Click for details
+                        </p>
+                        <svg
+                          className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <p className="text-base text-gray-600 group-hover:text-gray-500 transition-colors">
+                      {designation}
+                    </p>
+                    <p className="text-sm text-gray-500 font-light group-hover:text-gray-400 transition-colors">
                       {duration}
                     </p>
                   </div>
