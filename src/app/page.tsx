@@ -1,6 +1,6 @@
 import IntroSection from "../components/Intro-section";
 import WorkShowcase from "../components/work-showcase";
-import WorkExperience from "../components/work-Experiencet";
+import WorkExperience from "../components/work-Experience";
 import TechStack from "../components/tech-stack";
 
 export default function Home() {
