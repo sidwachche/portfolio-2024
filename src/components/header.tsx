@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa";
 
 function Header() {
   return (
-    <nav className="bg-blur flex items-center justify-between font-light rounded-b-3xl text-slate-600 fixed top-0 w-screen h-12 shadow py-2 lg:px-20 px-4 z-10">
+    <nav className="bg-blur flex items-center justify-between font-light rounded-b-3xl text-slate-600 fixed top-0 w-screen h-12 shadow py-2 md:px-8  px-4 z-10">
       <Link href="/" className="text-sm p-1 ">
         {`< Sid >`}
       </Link>

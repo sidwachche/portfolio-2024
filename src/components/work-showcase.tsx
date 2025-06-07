@@ -57,51 +57,95 @@ const freeCodeProjectList = [
 
 function WorkShowcase() {
   return (
-    <div className="">
+    <div className="mb-20">
       <div className="flex justify-center mb-14">
         <h1 className="black-chip " id="work">
           Selected Work
         </h1>
       </div>
-      {projectList.map(({ title, description, imgSrc, link }) => (
-        <section
-          key={description}
-          className="group border p-1 rounded-[20px] xl:mx-32 my-10 shadow-md relative shadow-primary-gradient transition-all"
-        >
-          <Link className="" href={link} target="_blank">
-            <div className="px-8 py-9 border rounded-2xl overflow-hidden bg-white shadow-xl">
-              <div className="flex flex-col gap-2 mb-10 transition-all duration-500">
-                <div className="flex justify-between items-center">
-                  <h3 className="text-4xl text-primary-gradient tracking-tight font-bold pr-2">
-                    {title}
-                  </h3>
-                  <BsArrowRight className="text-gray-500 text-2xl group-hover:translate-x-2 duration-500" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        {projectList.map(({ title, description, imgSrc, link }) => (
+          <section
+            key={description}
+            className="group border p-1 rounded-[20px] shadow-md relative shadow-primary-gradient transition-all"
+          >
+            <Link className="" href={link} target="_blank">
+              <div className="px-6 py-7 border rounded-2xl overflow-hidden bg-white shadow-xl h-full">
+                <div className="flex flex-col gap-2 mb-8 transition-all duration-500">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-2xl md:text-3xl text-primary-gradient tracking-tight font-bold pr-2 py-0.5">
+                      {title}
+                    </h3>
+                    <BsArrowRight className="text-gray-500 lg:text-2xl text-base group-hover:translate-x-2 duration-500" />
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <h5 className="lg:text-lg text-base text-gray-500 ">
+                      {description}
+                    </h5>
+                  </div>
                 </div>
-                <div className="flex gap-3">
-                  <h4 className="text-lg font-semibold text-gray-600 ">
-                    Boomerang
-                  </h4>
-                  <h5 className="text-lg text-gray-500 ">{description}</h5>
+
+                <div className="flex justify-center w-full">
+                  <MacWindowWrapper tagName="org-charts">
+                    <Image
+                      width={1050}
+                      height={650}
+                      src={imgSrc}
+                      alt="org chart overview"
+                      className="rounded-b-lg"
+                      placeholder="blur"
+                      loading="lazy"
+                    />
+                  </MacWindowWrapper>
                 </div>
               </div>
-
-              <div className="flex justify-center w-full">
-                <MacWindowWrapper tagName="org-charts">
-                  <Image
-                    width={1050}
-                    height={650}
-                    src={imgSrc}
-                    alt="org chart overview"
-                    className="rounded-b-lg"
-                    placeholder="blur"
-                    loading="lazy"
-                  />
-                </MacWindowWrapper>
+            </Link>
+          </section>
+        ))}
+        <section className="group border p-1 rounded-[20px] shadow-md relative shadow-primary-gradient transition-all">
+          <div className="px-6 py-7 border rounded-2xl overflow-hidden bg-white shadow-xl h-auto">
+            <div className="flex flex-col gap-2 mb-8 transition-all duration-500">
+              <div className="flex justify-between items-center">
+                <h3 className="text-2xl md:text-3xl text-primary-gradient tracking-tight font-bold pr-2 py-0.5">
+                  React Projects
+                </h3>
+              </div>
+              <div className="flex flex-col gap-1">
+                <h4 className="text-sm text-gray-500">
+                  click on a tile to checkout freeCodeCamp react certification
+                  projects projects and code
+                </h4>
               </div>
             </div>
-          </Link>
+            <MacWindowWrapper disableTapAnimation tagName="org-charts">
+              <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4 ">
+                {freeCodeProjectList.map(({ link, name, src }) => (
+                  <Link href={baseUrl + link} key={name} target="_blank">
+                    <motion.div
+                      whileTap={{ scale: 0.85 }}
+                      className="space-y-2 w-full "
+                    >
+                      <Image
+                        width={120}
+                        height={120}
+                        className="rounded-lg border-2 transition-all min-w-16 md:w-full"
+                        src={src}
+                        alt={`name app image`}
+                        placeholder="blur"
+                        loading="lazy"
+                        quality={80}
+                      />
+                      <p className="text-md text-gray-500 py-1 truncate underline decoration-dotted cursor-pointer">
+                        {name}
+                      </p>
+                    </motion.div>
+                  </Link>
+                ))}
+              </section>
+            </MacWindowWrapper>
+          </div>
         </section>
-      ))}
+      </div>
       {/* {projectList.map(({ title, description, imgSrc, link }) => (
         <section key={description} className="work-section-container">
           <div className="flex flex-col gap-2 max-w-[300px]">
@@ -132,51 +176,6 @@ function WorkShowcase() {
           </Link>
         </section>
       ))} */}
-      <section className="group border p-1 rounded-[20px] xl:mx-32 my-10 shadow-md relative shadow-primary-gradient transition-all">
-        <div className="px-8 py-9 border rounded-2xl overflow-hidden bg-white shadow-xl">
-          <div className="flex flex-col gap-2 mb-10 transition-all duration-500">
-            <div className="flex justify-between items-center">
-              <h3 className="text-4xl text-primary-gradient tracking-tight font-bold pr-2">
-                React Projects
-              </h3>
-            </div>
-            <div className="flex flex-col gap-3 ">
-              <h4 className="text-lg font-semibold text-gray-600 ">
-                These are freeCodeCamp react certification projects
-              </h4>
-              <h4 className="text-sm text-gray-500">
-                click on a tile to checkout live projects and code
-              </h4>
-            </div>
-          </div>
-          <MacWindowWrapper disableTapAnimation tagName="org-charts">
-            <section className="grid gap-4 lg:gap-10 grid-cols-3 md:grid-cols-3 lg:grid-cols-5 p-8">
-              {freeCodeProjectList.map(({ link, name, src }) => (
-                <Link href={baseUrl + link} key={name} target="_blank">
-                  <motion.div
-                    whileTap={{ scale: 0.85 }}
-                    className="space-y-2 w-full "
-                  >
-                    <Image
-                      width={200}
-                      height={200}
-                      className="rounded-lg border-2 transition-all min-w-16 md:w-full"
-                      src={src}
-                      alt={`name app image`}
-                      placeholder="blur"
-                      loading="lazy"
-                      quality={80}
-                    />
-                    <p className="text-md text-gray-500 py-1 truncate underline decoration-dotted cursor-pointer">
-                      {name}
-                    </p>
-                  </motion.div>
-                </Link>
-              ))}
-            </section>
-          </MacWindowWrapper>
-        </div>
-      </section>
     </div>
   );
 }
